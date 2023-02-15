@@ -1,3 +1,4 @@
+
 import java.io.PrintWriter;
 import org.openqa.selenium.WebDriver;
 /**
@@ -5,7 +6,7 @@ import org.openqa.selenium.WebDriver;
  * @author pjpro
  *
  */
-public class Gdudim {
+public class Gdudim2 {
 	
 	int _inum = 0;
 	WebDriver _driver=null;
@@ -14,16 +15,19 @@ public class Gdudim {
 	
 	final String _buttonXpath = "//html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]";
 	final String _buttonSaveXpath = _buttonXpath;
-	final String _inputsXpath1 = "//html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[";
-	final String _inputsXpath2 = "]/div[2]/div[1]/input[1]";
+	final String _inputsXpath1 = "//input[@name='";
+	final String _inputsXpath2 = "'";
 //	final String _shahar = "//input[@name='shahar']";
 //	final String _kedem = "//input[@name='kedem']";
 //	final String _tavor = "//input[@name='tavor']";
 //	final String _ram = "//input[@name='ram']";
 	
+	String[] strArray = {"shahar", "kedem", "tavor", "ram"};
 	
 	
-	public Gdudim(int num, WebDriver driver, PrintWriter logFile)
+	
+	
+	public Gdudim2(int num, WebDriver driver, PrintWriter logFile)
 	{
 		_inum = num;
 		_driver = driver;
@@ -32,17 +36,18 @@ public class Gdudim {
 	}
 	
 	
+	
 	public boolean Test() {
 
 		boolean result = true;
 
 		_inum++;
-		result = _proc.testSingleLink(_buttonXpath, _inum, _logFile, _driver);
+//		result = _proc.testSingleLink(_buttonXpath, _inum, _logFile, _driver);
 		if(result) {
 			for (int i = 1; i <= 4; i++)
 			{
 				_inum++;
-				result = _proc.testSendKeys(_inputsXpath1 + i + _inputsXpath2, _inum, _logFile, _driver) && result;
+				result = _proc.testSendKeys(_inputsXpath1 + strArray[0] + _inputsXpath2, _inum, _logFile, _driver) && result;
 			}
 			_inum++;
 			result = _proc.testSingleLink(_buttonSaveXpath, _inum, _logFile, _driver) && result;

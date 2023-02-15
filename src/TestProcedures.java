@@ -7,9 +7,6 @@
 import java.io.PrintWriter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-
-
 public class TestProcedures {
 	/**
 	 * tests single link
@@ -18,6 +15,7 @@ public class TestProcedures {
 	 * @param out
 	 * @param driver
 	 * @return
+	 * 
 	 */
 	public boolean testSingleLink(String xpath, int testNum, PrintWriter out, WebDriver driver)
 	{
